@@ -1,0 +1,119 @@
+/* Home_Page.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600&display=swap');
+
+
+:root {
+  --primary-color: #000;
+  --hover-color: #5a5aff;
+  --background-color: #ffffff;
+  --text-color: #333;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --transition-speed: 0.3s;
+  --border-radius: 10px;
+  --font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.navbar {
+  width: 100%;
+  background: var(--background-color);
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.main-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--border-radius);
+}
+
+.main-menu a:hover {
+  color: var(--hover-color);
+  transform: translateY(-1px);
+  background-color: rgba(90, 90, 255, 0.05);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.language-selector {
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  transition: background var(--transition-speed);
+}
+
+.language-selector:hover {
+  background: #f2f2f2;
+}
+
+.workspace-btn {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-speed), transform var(--transition-speed);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.workspace-btn:hover {
+  background-color: #222;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-menu {
+    display: none;
+  }
+
+  .navbar-container {
+    justify-content: space-between;
+  }
+}
+
+
+
