@@ -25,7 +25,7 @@ function App() {
       
       <Router>
         <Routes>
-          <Route path="/Home_Page" element={<Home_Page data={landingPageData.Home_Page} />} />
+          <Route path="/Home_Page" element={<Home_Page data={landingPageData.Home_Page} />}/>
           <Route path="/Market_Shop" element={<Market_Shop data={landingPageData.Market_Shop} />} />
           <Route path="/contact" element={<Contact data={landingPageData.Contact} />} />
           <Route path="/Sign_Up" element={<Sign_Up data={landingPageData.Sign_Up} />} />
