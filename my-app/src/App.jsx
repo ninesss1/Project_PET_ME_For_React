@@ -5,7 +5,7 @@ import Market_Shop from "./components/Market_Shop";
 import Contact from "./components/Contact";
 import Sign_Up from "./components/Sign_Up";
 import Login_Page from "./components/login_Page";
-import landingPageData from "./data/landingPageData.json";
+// import landingPageData from "./data/landingPageData.json";
 
 function App() {
   return (
@@ -25,13 +25,13 @@ function App() {
       
       <Router>
         <Routes>
-          <Route path="/Home_Page" element={<Home_Page data={landingPageData.Home_Page} />}/>
-          <Route path="/Market_Shop" element={<Market_Shop data={landingPageData.Market_Shop} />} />
-          <Route path="/contact" element={<Contact data={landingPageData.Contact} />} />
-          <Route path="/Sign_Up" element={<Sign_Up data={landingPageData.Sign_Up} />} />
-          <Route path="/login_Page" element={<Login_Page data={landingPageData.Login_Page} />} />
+          <Route path="/Home_Page" element={<Home_Page />}/>
+          <Route path="/Market_Shop" element={<Market_Shop />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/Sign_Up" element={<Sign_Up />} />
+          <Route path="/login_Page" element={<Login_Page />} />
           {/* Optional: Default route */}
-          <Route path="*" element={<Home_Page data={landingPageData.Home_Page} />} />
+          <Route path="*" element={<Home_Page />} />
         </Routes>
       </Router>
     </>
