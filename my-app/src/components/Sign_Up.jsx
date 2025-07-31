@@ -26,10 +26,30 @@ function Sign_Up() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: handle sign up logic
-  };
+  // ตรวจสอบว่ากรอกครบและข้อมูลเบื้องต้นถูกต้อง
+  const isFormValid =
+    form.name.trim() &&
+    form.email.trim() &&
+    form.password &&
+    form.confirmPassword &&
+    form.phone.length === 10 &&
+    form.password === form.confirmPassword &&
+    /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(form.email);
+    
+
+// ...
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  if (isFormValid) {
+    // Save form data to sessionStorage
+    sessionStorage.setItem("signupForm", JSON.stringify(form));
+    window.location.href = '/details'; // ใช้ path เล็กทั้งหมด
+  } else {
+    alert('กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน');
+  }
+};
+// ...
 
   return (
     <div className="signup-container">
@@ -46,7 +66,7 @@ function Sign_Up() {
             placeholder="ชื่อผู้ใช้"
             value={form.name}
             onChange={handleChange}
-            required
+            // required
             autoFocus
           />
         </div>
@@ -59,7 +79,8 @@ function Sign_Up() {
             placeholder="อีเมล"
             value={form.email}
             onChange={handleChange}
-            required
+            // required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           />
         </div>
         <div className="signup-group">
@@ -71,7 +92,7 @@ function Sign_Up() {
             placeholder="รหัสผ่าน"
             value={form.password}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <div className="signup-group">
@@ -83,10 +104,10 @@ function Sign_Up() {
             placeholder="ยืนยันรหัสผ่าน"
             value={form.confirmPassword}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
-        <div className="Phone-group">
+        <div className="signup-group">
           <label htmlFor="phone">หมายเลขโทรศัพท์</label>
           <input
             type="text"
@@ -95,12 +116,18 @@ function Sign_Up() {
             placeholder="หมายเลขโทรศัพท์"
             value={form.phone}
             onChange={handleChange}
-            required
+            pattern="[0-9]{10}$"
+            minLength={10}
+            maxLength={10}
+            // required
           />
         </div>
-        <button className="signup-btn" type="submit" >
-          <i className="fa-arrow-right"></i> ต่อไป
-        </button>
+        {/* แสดงปุ่มเฉพาะเมื่อกรอกครบ */}
+        {isFormValid && (
+          <button className="signup-btn" type="submit">
+            <i className="fa-arrow-right"></i> ต่อไป
+          </button>
+        )}
       </form>
     </div>
   );

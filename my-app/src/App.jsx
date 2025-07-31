@@ -5,6 +5,7 @@ import Market_Shop from "./components/Market_Shop";
 import Contact from "./components/Contact";
 import Sign_Up from "./components/Sign_Up";
 import Login_Page from "./components/login_Page";
+import Details from "./components/details";
 // import landingPageData from "./data/landingPageData.json";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/Sign_Up" element={<Sign_Up />} />
           <Route path="/login_Page" element={<Login_Page />} />
+          <Route path="/details" element={<Details />} />
           {/* Optional: Default route */}
           <Route path="*" element={<Home_Page />} />
         </Routes>
